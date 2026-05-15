@@ -279,13 +279,24 @@
       padding-top: 16px;
     }
     #quiz {
-      min-height: calc(100vh - 80px);
+      height: calc(100dvh - 122px);
+      min-height: 0;
       display: flex;
       flex-direction: column;
+      overflow: hidden;
     }
 
-    #optionsForm {
+    .question-frame {
       flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #f9fafb;
+      padding: 14px;
+    }
+    #optionsForm {
+      margin: 0;
     }
     .warn {
       color: var(--warn);
@@ -305,6 +316,9 @@
       }
       .footer-nav {
         flex-direction: column;
+      }
+      #quiz {
+        height: calc(100dvh - 150px);
       }
     }
   </style>
@@ -356,8 +370,10 @@
         <span class="badge" id="qResultBadge"></span>
       </div>
       <div class="progress"><div id="progressBar"></div></div>
-      <div class="question-title" id="questionText"></div>
-      <form id="optionsForm"></form>
+      <div class="question-frame">
+        <div class="question-title" id="questionText"></div>
+        <form id="optionsForm"></form>
+      </div>
       <div class="smallrow">
         <button id="submitBtn" onclick="submitAnswer(); return false;">Ответить</button>
         <button id="showBtn" onclick="showAnswerOnly(); return false;" class="ghost">Показать ответ</button>
