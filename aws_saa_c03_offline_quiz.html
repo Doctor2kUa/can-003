@@ -854,15 +854,14 @@ function revealFeedback(isCorrect, selected, onlyShow) {
     resultHtml = `<strong>Correct answer: ${correctText}</strong>`;
     fb.className = "feedback";
   } else if (isCorrect) {
-    resultHtml = `<strong>Correct.</strong> Answer: ${correctText}`;
+    resultHtml = `<strong>Correct answer: ${correctText}</strong>`;
     fb.className = "feedback good";
   } else {
-    resultHtml = `<strong>Incorrect.</strong> Correct answer: ${correctText}`;
+    resultHtml = `<strong>Correct answer: ${correctText}</strong>`;
     fb.className = "feedback bad";
   }
 
-  const answerDetails = buildAnswerDetails(q);
-  fb.innerHTML = resultHtml + answerDetails;
+  fb.innerHTML = resultHtml;
   fb.classList.remove("hidden");
   document.getElementById("submitBtn").disabled = true;
   document.getElementById("showBtn").disabled = true;
